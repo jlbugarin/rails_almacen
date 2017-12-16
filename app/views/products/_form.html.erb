@@ -1,0 +1,13 @@
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.error_span(:name) %>
+  <%= f.input :description %>
+  <%= f.error_span(:description) %>
+  <%= f.association :category %>
+  <%= #f.association :score,:include_blank => false, :label_method => lambda { |score| "#{score.id} | #{score.description}" } %>
+  <%= f.error_span(:category_id) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn btn-default' %>
+<% end %>
